@@ -19,16 +19,25 @@ app.get('/', function (req, res){
 app.get('/heroes', (req,res) => {
 	res.send(heroes)}
 	);
-/*
+
 // Ruta /heroes/n ➝ se envía el nombre y profesión del héroe solicitado
-app.get('¿?', (¿?) => {
+app.get('heroes/:id?', (req, res) => {
 	// Acá lo primero será encontrar al héroe que corresponda
-	let heroe = __¿?__;
-	
+	//const id = req.params.id
+	let resultado = heroes.find(function(heroe) {
+		return heroe.id == req.params.id
+	});
+
+	if (resultado) {
+		res.send('Hola mi nombre es ${resultado.nombre} y soy ${resultado.profesion}'
+	} else {
+		res.send('No lo encontré')
+	}
+		
 	// Si se encuentra al héroe se envía el nombre y su profesión
 	// Si NO se encuentra se envía el mensaje de no encontrado
 });
-
+/*
 // Ruta /heroes/n/bio ➝ se envía la bio del héroe solicitado
 app.get('¿?', (¿?) => {
 	// Acá lo primero será encontrar al héroe que corresponda
