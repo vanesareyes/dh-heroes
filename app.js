@@ -1,11 +1,11 @@
 // Require de Express
-const express = __¿?__;
+const express = require ('express');
 
 // Require de FS
-const fs = __¿?__;
+const fs = require ('fs');
 
 // Ejecución de Express
-const app = __¿?__;
+const app = express();
 
 // Levantando el Servidor en el puerto 3030
 app.listen(3030, () => console.log('Server running in 3030 port'));
@@ -14,7 +14,9 @@ app.listen(3030, () => console.log('Server running in 3030 port'));
 const heroes = JSON.parse(fs.readFileSync(__dirname + '/data/heroes.json', 'utf-8'));
 
 // Ruta Raíz / ➝ Home
-app.get('/', __¿?__);
+app.get('/', function (req, res){
+	res.send('Ni Superman, Iron Man o La Mujer Maravilla son tan importantes cómo las y los Heroes de carne y hueso que encontrarás en este sitio. Esperamos que ellas y ellos te sirvan como inspiración para poder cumplir tus objetivos. Recuerda: ¡nunca pares de creer en ti!.')
+});
 
 // Ruta /heroes ➝ se envía todo el array y Express lo parsea para el browser como JSON :D
 app.get('/heroes', (¿?) => {
