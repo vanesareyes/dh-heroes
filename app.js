@@ -7,9 +7,6 @@ const fs = require ('fs');
 // Ejecución de Express
 const app = express();
 
-// Levantando el Servidor en el puerto 3030
-app.listen(3030, () => console.log('Server running in 3030 port'));
-
 // Leyendo y parseando (en array) el contenido de heroes.json
 const heroes = JSON.parse(fs.readFileSync(__dirname + '/data/heroes.json', 'utf-8'));
 
@@ -19,10 +16,10 @@ app.get('/', function (req, res){
 });
 
 // Ruta /heroes ➝ se envía todo el array y Express lo parsea para el browser como JSON :D
-app.get('/heroes', (¿?) => {
-	res.send(ACÁ_DEBERÍAMOS_ENVIAR_A_TODOS_LOS_HÉROES);
-});
-
+app.get('/heroes', (req,res) => {
+	res.send(heroes)}
+	);
+/*
 // Ruta /heroes/n ➝ se envía el nombre y profesión del héroe solicitado
 app.get('¿?', (¿?) => {
 	// Acá lo primero será encontrar al héroe que corresponda
@@ -51,3 +48,6 @@ app.get('¿?', (¿?) => {
 app.get('*', (req, res) => {
 	res.status(404).send('404 not found. <br> ¡Houston, poseemos problemas!');
 });
+*/
+// Levantando el Servidor en el puerto 3030
+app.listen(3030, () => console.log('Server running in 3030 port'));
